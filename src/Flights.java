@@ -1,7 +1,11 @@
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+
 public class Flights {
     private int id;
     private String model_airplane;
-    private String departure;
+    private Timestamp departure;
     private int id_from_airport;
     private int id_in_airport;
     private String time_fly;
@@ -24,11 +28,11 @@ public class Flights {
         this.model_airplane = model_airplane;
     }
 
-    public String getDeparture() {
+    public Timestamp getDeparture() {
         return departure;
     }
 
-    public void setDeparture(String departure) {
+    public void setDeparture(Timestamp departure) {
         this.departure = departure;
     }
 

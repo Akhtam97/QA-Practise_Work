@@ -837,7 +837,7 @@ sequence|table|33599|33600|1
     <database id="10" parent="1" name="qa_work_2">
       <ObjectId>33613</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2836</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2888</IntrospectionStateNumber>
       <Relations>sequence|table|33614|33615|1
 sequence|table|33623|33624|1
 sequence|table|33637|33638|1
@@ -1112,7 +1112,7 @@ UC/10
 </Acl>
       <StateNumber>527</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2837</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2889</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="57" parent="10" name="plpgsql">
@@ -1280,7 +1280,7 @@ UC/10
     <table id="81" parent="56" name="flights">
       <ObjectId>33638</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2835</StateNumber>
+      <StateNumber>2887</StateNumber>
     </table>
     <table id="82" parent="56" name="ticket">
       <ObjectId>33670</ObjectId>
@@ -1690,19 +1690,19 @@ UC/10
       <Position>9</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>2826</StateNumber>
+      <StateNumber>2879</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="137" parent="81" name="time_fly">
       <Position>10</Position>
-      <DataType>time|0s</DataType>
+      <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>2832</StateNumber>
-      <TypeId>1083</TypeId>
+      <StateNumber>2887</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
     <index id="138" parent="81" name="flights_pkey">
       <ObjectId>33644</ObjectId>
-      <StateNumber>2835</StateNumber>
+      <StateNumber>2887</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>

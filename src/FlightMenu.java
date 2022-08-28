@@ -1,3 +1,5 @@
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Scanner;
 
 public class FlightMenu {
@@ -5,7 +7,7 @@ public class FlightMenu {
         Scanner sc = new Scanner(System.in);
         Connector connector = new Connector();
         Flights flights = new Flights();
-        while (true){
+        while (true) {
             int answer;
             System.out.println("Меню Рейсов: ");
             System.out.println("Добавление Рейсов - 1");
@@ -15,8 +17,11 @@ public class FlightMenu {
             System.out.println("Вывод Полного списка Рейсов -5");
             System.out.println("Выход 0");
             answer = sc.nextInt();
-            if (answer == 1){
+            if (answer == 1) {
                 connector.addFlights(flights);
+                System.out.println("Добавлено");
+            }else if (answer == 2){
+
             }
         }
     }
