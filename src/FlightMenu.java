@@ -21,7 +21,11 @@ public class FlightMenu {
                 connector.addFlights(flights);
                 System.out.println("Добавлено");
             }else if (answer == 2){
-
+                connector.deleteFlights(flights);
+                System.out.println("Удалено");
+            }else if (answer == 3){
+                connector.updateFlights(flights);
+                System.out.println("Изменено");
             }
         }
     }
