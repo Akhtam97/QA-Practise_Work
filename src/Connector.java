@@ -101,4 +101,36 @@ public class Connector {
             e.printStackTrace();
         }
     }
+    public void searchFlights(Flights flights) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите id рейса для поиска");
+        flights.setId(sc.nextInt());
+        try {
+            String sql = "SELECT model_airplane,\n" +
+                    "       airport.name_airport,\n" +
+                    "       airport2.name_airport,\n" +
+                    "       places,\n" +
+                    "       number,\n" +
+                    "       departure,\n" +
+                    "       time_fly\n" +
+                    "from flights\n" +
+                    "         inner join airport airport on flights.id_from_airport  =  a.id\n" +
+                    "         inner join airport airport2 on  flights.id_in_airport = a2.id\n" +
+                    "where flights.id = ?";
+            PreparedStatement statement = connection().prepareStatement(sql);
+            statement.setInt(1,flights.getId());
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                System.out.println("Модель Самолета : " + rs.getString("model_airplane") +
+                        " \n" + "Аэропорт Вылета : " + rs.getString("airport.name_airport") +
+                        " \n" + "Аэропорт Прилета : " + rs.getString("airport2.name_airport") +
+                        " \n" + "Посадочных мест : " + rs.getInt("places") +
+                        " \n" + "Номер рейса : " + rs.getString("number") +
+                        " \n" + "Время Вылета : " + rs.getTimestamp("departure") +
+                        " \n" + "Время полета : " + rs.getString("time_fly"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + " \nНет такого рейса");
+        }
+    }
 }

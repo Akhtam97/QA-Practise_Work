@@ -26,6 +26,9 @@ public class FlightMenu {
             }else if (answer == 3){
                 connector.updateFlights(flights);
                 System.out.println("Изменено");
+            }else if (answer == 4){
+                connector.searchFlights(flights);
+                System.out.println("Найдено");
             }
         }
     }

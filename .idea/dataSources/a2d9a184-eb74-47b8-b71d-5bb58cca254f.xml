@@ -837,7 +837,7 @@ sequence|table|33599|33600|1
     <database id="10" parent="1" name="qa_work_2">
       <ObjectId>33613</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2888</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2895</IntrospectionStateNumber>
       <Relations>sequence|table|33614|33615|1
 sequence|table|33623|33624|1
 sequence|table|33637|33638|1
@@ -1112,7 +1112,7 @@ UC/10
 </Acl>
       <StateNumber>527</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2889</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2896</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="57" parent="10" name="plpgsql">
