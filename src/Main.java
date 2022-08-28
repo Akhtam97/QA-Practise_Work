@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        test test = new test();
-        Flights flights = new Flights();
-        test.searchFlights(flights);
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("Главное Меню");

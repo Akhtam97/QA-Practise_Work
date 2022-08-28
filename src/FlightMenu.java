@@ -28,7 +28,10 @@ public class FlightMenu {
                 System.out.println("Изменено");
             }else if (answer == 4){
                 connector.searchFlights(flights);
-                System.out.println("Найдено");
+
+            }else if (answer == 5){
+                connector.allFlights(flights);
+                System.out.println("Вот весь список");
             }
         }
     }
