@@ -5,8 +5,8 @@ create database QA_work_2;
 1
 create table country (
     id serial not null primary key,
-    code_country varchar not null ,
-    name_country varchar not null
+    code_country varchar not null unique,
+    name_country varchar not null unique
 );
 --Аэропортов, которые будут содержать код аэропорта,
 -- город в котором находится и код страны

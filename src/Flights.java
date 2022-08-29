@@ -11,6 +11,15 @@ public class Flights {
     private String time_fly;
     private int places;
     private String number;
+    private Timestamp vremyanka;
+
+    public Timestamp getVremyanka() {
+        return vremyanka;
+    }
+
+    public void setVremyanka(Timestamp vremyanka) {
+        this.vremyanka = vremyanka;
+    }
 
     public int getId() {
         return id;

@@ -15,6 +15,7 @@ public class FlightMenu {
             System.out.println("Изменения Рейсов - 3");
             System.out.println("Поиск Рейса - 4");
             System.out.println("Вывод Полного списка Рейсов -5");
+            System.out.println("Поиск Рейсов по номеру - 6");
             System.out.println("Выход 0");
             answer = sc.nextInt();
             if (answer == 1) {
@@ -32,6 +33,10 @@ public class FlightMenu {
             }else if (answer == 5){
                 connector.allFlights(flights);
                 System.out.println("Вот весь список");
+            }else if (answer == 6){
+                connector.searchTimeFlights(flights);
+            }else if (answer==0){
+                return;
             }
         }
     }

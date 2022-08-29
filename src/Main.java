@@ -16,6 +16,10 @@ public class Main {
             int answer = sc.nextInt();
             if (answer == 1) {
                 FlightMenu.start();
+            }else if   (answer ==2){
+                CountryMenu.start();
+            }else if (answer == 2){
+
             }
         }
     }

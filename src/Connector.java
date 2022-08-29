@@ -65,6 +65,34 @@ public class Connector {
     }
 
     public void updateFlights(Flights flights) {
+        try {
+            String sql = "SELECT flights.id, model_airplane,\n" +
+                    "       a.name_airport,\n" +
+                    "       a2.name_airport,\n" +
+                    "       places,\n" +
+                    "       number,\n" +
+                    "       departure,\n" +
+                    "       time_fly\n" +
+                    "from flights\n" +
+                    "         inner join airport a on flights.id_from_airport  =  a.id\n" +
+                    "         inner join airport a2 on  flights.id_in_airport = a2.id\n;";
+            PreparedStatement statement = connection().prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                System.out.println("ID : " + rs.getInt("id") +
+                        " \n" + "Модель Самолета : " + rs.getString("model_airplane") +
+                        " \n" + "Аэропорт Вылета : " + rs.getString("name_airport") +
+                        " \n" + "Аэропорт Прилета : " + rs.getString("name_airport") +
+                        " \n" + "Посадочных мест : " + rs.getInt("places") +
+                        " \n" + "Номер рейса : " + rs.getString("number") +
+                        " \n" + "Время Вылета : " + rs.getTimestamp("departure") +
+                        " \n" + "Время полета : " + rs.getString("time_fly") +
+                        " \n");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage() + " \nОшибка");
+        }
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Начнем изменение внесите новые Данные");
         System.out.print("Введите модель самолета (Пример: ИЛ-2, BF-109, boeing-747) \n");
@@ -162,6 +190,45 @@ public class Connector {
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage() + " \nОшибка");
+        }
+    }
+
+    public void searchTimeFlights(Flights flights) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите дату рейса от для поиска (Пример: 2022-08-20 00:00:00)");
+        flights.setDeparture(Timestamp.valueOf(sc.next() + " " + sc.next() ));
+        System.out.println("Введите дату рейса до для поиска (Пример: 2022-08-29 19:00:00)");
+        flights.setVremyanka(Timestamp.valueOf( sc.next()  + " " + sc.next()));
+        try {
+            String sql = "SELECT flights.id,\n" +
+                    "       model_airplane,\n" +
+                    "       a.name_airport,\n" +
+                    "       a2.name_airport,\n" +
+                    "       places,\n" +
+                    "       number,\n" +
+                    "       departure,\n" +
+                    "       time_fly\n" +
+                    "from flights\n" +
+                    "inner join airport a on flights.id_from_airport = a.id\n" +
+                    "inner join airport a2 on flights.id_in_airport = a2.id\n" +
+                    "                  where\n" +
+                    "departure between  ? and ?;";
+            PreparedStatement statement = connection().prepareStatement(sql);
+            statement.setTimestamp(1, flights.getDeparture());
+            statement.setTimestamp(2,flights.getVremyanka());
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                System.out.println("Модель Самолета : " + rs.getString("model_airplane") +
+                        " \n" + "Аэропорт Вылета : " + rs.getString("name_airport") +
+                        " \n" + "Аэропорт Прилета : " + rs.getString("name_airport") +
+                        " \n" + "Посадочных мест : " + rs.getInt("places") +
+                        " \n" + "Номер рейса : " + rs.getString("number") +
+                        " \n" + "Время Вылета : " + rs.getTimestamp("departure") +
+                        " \n" + "Время полета : " + rs.getString("time_fly") +
+                        "\n");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
