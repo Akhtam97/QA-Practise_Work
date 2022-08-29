@@ -12,8 +12,6 @@ public class AirportMenu {
             System.out.println("Удаление Аэропорта - 2");
             System.out.println("Информация об Аэропортах - 3");
             System.out.println("Поиск Аэропорта - 4");
-            System.out.println("Вывод Полного списка Рейсов -5");
-            System.out.println("Поиск Рейсов по номеру - 6");
             System.out.println("Выход 0");
             answer = sc.nextInt();
             if (answer == 1) {
