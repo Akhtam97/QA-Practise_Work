@@ -18,8 +18,8 @@ public class Main {
                 FlightMenu.start();
             }else if   (answer ==2){
                 CountryMenu.start();
-            }else if (answer == 2){
-
+            }else if (answer == 3){
+                AirportMenu.start();
             }
         }
     }
