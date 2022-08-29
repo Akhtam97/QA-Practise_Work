@@ -1,0 +1,56 @@
+create database QA_work_2;
+
+--Стран, которые будут содержать
+-- код страны и ее наименование
+1
+create table country (
+    id serial not null primary key,
+    code_country varchar not null unique,
+    name_country varchar not null unique
+);
+--Аэропортов, которые будут содержать код аэропорта,
+-- город в котором находится и код страны
+2
+create table airport (
+    id   serial not null primary key ,
+    name_airport varchar not null ,
+    code_airport varchar not null,
+    city varchar not null,
+    id_country int not null references country(id)
+);
+
+--Рейсов, которые должны содержать информацию о модели самолета,
+-- времени вылета, откуда вылет(код аэропорта),
+-- где будет прилет(код аэропорта), длительности полета, количество мест и номер рейса
+3
+create table flights (
+    id serial not null primary key,
+    model_airplane varchar not null ,
+    departure timestamp not null ,
+    id_from_airport int not null references airport (id),
+    id_in_airport int not null references airport(id),
+    time_fly time not null,
+    places int not null ,
+    number int not null
+);
+
+--Клиентов, которые должны содержать информацию по
+-- типу паспортных данных (инн, айди паспорта, ФИО, пол, страна и тд)
+4
+create table client (
+    id serial not null primary key,
+    inn int not null ,
+    id_pass varchar not null ,
+    fio varchar not null ,
+    gender varchar not null ,
+    id_country int not null references country(id)
+);
+5
+--Билетов, которые будут содержать в себе айди клиента,
+-- номер рейса, время получения билета и номер билета
+create table ticket (
+    num_ticket serial not null ,
+    id_client int not null references client(id),
+    id_number_flights int not null references flights(id),
+    time_take timestamp not null
+);
