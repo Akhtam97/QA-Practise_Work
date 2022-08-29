@@ -37,6 +37,8 @@ public class FlightMenu {
                 connector.searchTimeFlights(flights);
             }else if (answer==0){
                 return;
+            }else {
+                System.out.println("Ошибка");
             }
         }
     }

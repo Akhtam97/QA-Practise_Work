@@ -22,6 +22,12 @@ public class Main {
                 AirportMenu.start();
             } else if (answer == 4) {
                 ClientMenu.start();
+            }else if (answer == 5){
+                TicketMenu.start();
+            }else if (answer ==0){
+                System.exit(1);
+            }else {
+                System.out.println("Ошибка попробуйте еще");
             }
         }
     }

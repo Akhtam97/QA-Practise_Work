@@ -36,6 +36,8 @@ public class CountryMenu {
                 connector2.searchCountry(country);
             }else if (answer==0){
                 return;
+            }else {
+                System.out.println("Ошибка");
             }
         }
     }

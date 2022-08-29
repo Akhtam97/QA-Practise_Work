@@ -31,6 +31,8 @@ public class ClientMenu {
                 System.out.println("Вот весь список");
             }else if (answer==0){
                 return;
+            }else {
+                System.out.println("Ошибка");
             }
         }
     }

@@ -104,7 +104,7 @@ public class Connector4 {
             PreparedStatement statement = connection().prepareStatement(sql);
             statement.setString(1, client.getId_pass());
             ResultSet rs = statement.executeQuery();
-            while (rs.next()) {
+            if (rs.next()) {
                 System.out.println("ID" + rs.getInt("ID") +
                         "\n" + "ИНН : " + rs.getString("INN") +
                         " \n" + "Номер Паспорта : " + rs.getString("id_pass") +
@@ -112,6 +112,8 @@ public class Connector4 {
                         " \n" + "Пол: " + rs.getString("gender") +
                         " \n" + "Страна: " + rs.getString("name_country") +
                         "\n");
+            }else {
+                System.out.println("Ошибка");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage() + " \nОшибка");
@@ -125,7 +127,7 @@ public class Connector4 {
                     "inner join country c on c.id = client.id_country ";
             PreparedStatement statement = connection().prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 System.out.println("ID" + rs.getInt("ID") +
                         "\n" + "ИНН : " + rs.getString("INN") +
                         " \n" + "Номер Паспорта : " + rs.getString("id_pass") +
@@ -133,9 +135,6 @@ public class Connector4 {
                         " \n" + "Пол: " + rs.getString("gender") +
                         " \n" + "Страна: " + rs.getString("name_country") +
                         "\n");
-            }
-            else {
-                System.out.println("Ошибка попробуйте заного");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage() + " \nОшибка");

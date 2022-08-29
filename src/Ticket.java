@@ -1,8 +1,10 @@
+import java.sql.Timestamp;
+
 public class Ticket {
     private int num_ticket;
     private int id_client;
     private int id_number_flights;
-    private int time_take;
+    private Timestamp time_take;
 
     public int getNum_ticket() {
         return num_ticket;
@@ -28,11 +30,11 @@ public class Ticket {
         this.id_number_flights = id_number_flights;
     }
 
-    public int getTime_take() {
+    public Timestamp getTime_take() {
         return time_take;
     }
 
-    public void setTime_take(int time_take) {
+    public void setTime_take(Timestamp time_take) {
         this.time_take = time_take;
     }
 }
